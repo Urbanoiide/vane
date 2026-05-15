@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para ti</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section class="inicio" id="inicio">
+    <h1>Vanessa</h1>
+    <p>Recuerdos.</p>
+
+    <button class="glightbox_video" id="btnReproducir" aria-label="Reproducir">
+      <svg width="131" height="131" viewBox="0 0 131 131" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="inner-circle" d="M65 21C40.1488 21 20 41.1488 20 66C20 90.8512 40.1488 111 65 111C89.8512 111 110 90.8512 110 66C110 41.1488 89.8512 21 65 21Z" fill="white"></path>
+        <circle class="outer_circle" cx="65.5" cy="65.5" r="64" stroke="white"></circle>
+        <path class="play" fill-rule="evenodd" clip-rule="evenodd" d="M60 76V57L77 66.7774L60 76Z" fill="#14e5c2"></path>
+      </svg>
+    </button>
+  </section>
+
+  <main class="album-video" id="albumVideo">
+    <section class="foto activa">
+      <img src="img/1.png" alt="Recuerdo 1">
+    </section>
+
+    <section class="foto">
+      <img src="img/2.jpg" alt="Recuerdo 2">
+    </section>
+
+    <section class="foto">
+      <img src="img/3.jpg" alt="Recuerdo 3">
+    </section>
+
+    <section class="foto">
+      <img src="img/4.jpg" alt="Recuerdo 4">
+    </section>
+
+    <section class="foto">
+      <img src="img/5.jpg" alt="Recuerdo 5">
+    </section>
+        <section class="foto">
+      <img src="img/6.jpg" alt="Recuerdo 5">
+    </section>
+
+     <section class="foto">
+      <img src="img/7.jpg" alt="Recuerdo 5">
+    </section>
+        <section class="foto">
+        <img src="img/8.jpg" alt="Recuerdo 5">
+    </section>
+    <div class="old-movie-filter"></div>
+    <div class="film-grain"></div>
+    <div class="film-lines"></div>
+    <div class="film-vignette"></div>     
+  </main>
+  <div class="mensaje-escritura" id="mensajeEscritura">
+  <p id="textoEscritura"></p>
+  <span id="subTextoEscritura"></span>
+  </div>
+  <audio id="musica" src="music/1.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #050505;
+      color: white;
+      overflow: hidden;
+    }
+
+    .inicio {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+      background: radial-gradient(circle at center, #412814 0%, #050505 70%);
+    }
+
+    .inicio h1 {
+      font-family: Georgia, serif;
+      color: #14e5c2;
+      font-size: clamp(2.8rem, 10vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .inicio p {
+      font-size: 1rem;
+      opacity: 0.75;
+      margin-bottom: 32px;
+    }
+
+ .glightbox_video {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 96px;
+      height: 96px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .outer_circle {
+      stroke-width: 3;
+      stroke-dasharray: 410;
+      stroke-dashoffset: 0;
+      stroke-linecap: square;
+      transition: all 0.4s ease-out;
+    }
+
+    .inner-circle {
+      transition: fill 0.4s ease-out;
+    }
+
+    .play {
+      transition: fill 0.4s ease-out;
+    }
+
+    .glightbox_video:hover .outer_circle {
+      stroke-dashoffset: 410;
+      transition: stroke 0.7s 0.4s ease-out, stroke-dashoffset 0.4s ease-out;
+    }
+
+    .glightbox_video:hover .inner-circle {
+      fill: #14e5c2;
+      transition: fill 0.4s 0.3s ease-out;
+    }
+
+    .glightbox_video:hover .play {
+      fill: white;
+      transition: fill 0.4s 0.3s ease-out;
+    }
+        .album-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100vh;
+      background: #000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .album-video.mostrar {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .foto {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+
+    .foto.activa {
+      opacity: 1;
+    }
+
+    .foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.35) contrast(1.15) brightness(0.78) saturate(0.75);
+    }
+
+    .texto-foto {
+      position: absolute;
+      left: 50%;
+      bottom: 12%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: clamp(1.8rem, 8vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
+    }
+    .old-movie-filter {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      rgba(255, 220, 160, 0.08),
+      rgba(40, 20, 10, 0.18)
+    );
+  mix-blend-mode: sepia;
+}
+
+/* Grano de película */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px),
+    radial-gradient(circle, rgba(0,0,0,0.4) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  animation: grainMove 0.25s steps(2) infinite;
+}
+
+/* Líneas verticales/suciedad de cinta */
+.film-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  opacity: 0.16;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 10px,
+      transparent 80px,
+      rgba(255,255,255,0.18) 81px,
+      transparent 82px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.05) 0px,
+      rgba(255,255,255,0.05) 1px,
+      transparent 2px,
+      transparent 6px
+    );
+  animation: filmFlicker 0.12s infinite;
+}
+
+/* Bordes oscuros cinematográficos */
+.film-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    transparent 5%,
+    rgba(0,0,0,0.45) 78%,
+    rgba(0,0,0,0.9) 100%
+  );
+}
+
+/* Movimiento del grano */
+@keyframes grainMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-2px, 2px);
+  }
+
+  50% {
+    transform: translate(2px, -1px);
+  }
+
+  75% {
+    transform: translate(-1px, -2px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Parpadeo sutil de película vieja */
+@keyframes filmFlicker {
+  0% {
+    opacity: 0.11;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.14;
+  }
+}
+.mensaje-escritura {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+  flex-direction: column;
+  gap: 15px;
+}
+.mensaje-escritura span {
+  max-width: 750px;
+  font-family: Georgia, serif;
+  font-size: clamp(0.9rem, 3vw, 1.4rem);
+  line-height: 1.5;
+  color: #14e5c2;
+  text-shadow: 0 6px 25px rgba(0, 0, 0, 0.9);
+}
+
+.mensaje-escritura.mostrar {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mensaje-escritura p {
+  max-width: 750px;
+  font-family: Georgia, serif;
+  font-size: clamp(1.6rem, 6vw, 4rem);
+  line-height: 1.3;
+  letter-spacing: 1px;
+  color: #14e5c2;
+  text-shadow: 0 8px 35px rgba(0, 0, 0, 0.9);
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: parpadeoCursor 0.8s infinite;
+}
+
+@keyframes parpadeoCursor {
+  0%, 50% {
+    opacity: 1;
+  }
+
+  51%, 100% {
+    opacity: 0;
+  }
+}
